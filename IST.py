@@ -1,3 +1,24 @@
+############################
+## Global variables 
+############################
+
+
+
+############################
+## Functions
+############################
+
+def password():
+    pass
+
+def menu():
+    pass
+
+## Add more functions from here
+
+
+
+## this code needs to be put into functions
 username=input("Please enter your Username: ")
 password=input("Please enter your Password: ")
 attempts=3
@@ -54,3 +75,11 @@ while(attempts > 1):
 
     if attempts == 1:
         print("Login failed. Shutting down.")
+
+
+
+##########################
+## Main fucntion
+##########################
+
+## this is where you should create your main function
