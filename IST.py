@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import os
 import sys
 import time
@@ -13,29 +12,6 @@ for char in words:
     
 #username for program is gowanbrae_admin, password is 1234#
 print("")
-=======
-############################
-## Global variables 
-############################
-
-
-
-############################
-## Functions
-############################
-
-def password():
-    pass
-
-def menu():
-    pass
-
-## Add more functions from here
-
-
-
-## this code needs to be put into functions
->>>>>>> c592c19290669511e773e5ed8cdf138f28e04de2
 username=input("Please enter your Username: ")
 password=input("Please enter your Password: ")
 #number of attempts given to access code
@@ -212,14 +188,3 @@ while(attempts > 1):
 
     if attempts == 1:
         print("Login failed. Shutting down.")
-<<<<<<< HEAD
-=======
-
-
-
-##########################
-## Main fucntion
-##########################
-
-## this is where you should create your main function
->>>>>>> c592c19290669511e773e5ed8cdf138f28e04de2
