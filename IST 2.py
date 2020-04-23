@@ -14,25 +14,10 @@ print("")
 username=input("Please enter the correct Username: ")
 password=input("Please enter the correct Password: ")
 print("") 
-#THE USER HAS 3 ATTEMPTS#
+#THE USER HAS 3 ATTEMPTS BEFORE THE PROGRAM WILL SHUT DOWN#
 attempts=3
-#arrays that were used to calculate percentages of grades
 gradeA_percentage = [0]
-gradeB_percentage = [0]
-gradeC_percentage = [0]
-gradeD_percentage = [0]
-gradeP_percentage = [0]
-gradeE_percentage = [0]
 
-#resetting grade percentages
-def reset():
-    gradeA_percentage[0]=gradeA_percentage[0] * 0
-    gradeB_percentage[0]=gradeB_percentage[0] * 0
-    gradeC_percentage[0]=gradeC_percentage[0] * 0
-    gradeD_percentage[0]=gradeD_percentage[0] * 0
-    gradeP_percentage[0]=gradeP_percentage[0] * 0
-    gradeE_percentage[0]=gradeE_percentage[0] * 0
-    
 #STUDENT NAMES AND SCORES FOR CLASS A#
 #       0  1  2  3  4  5  6  7  8  9
 scoreA=[90,40,50,99,29,86,45,10,30,67]
@@ -98,8 +83,9 @@ namesD=["PETER MUNTON","RACHEL MUNTON","MAX MORGAN","JORDY MATHIEU","JONTE NOURR
 #sommer=87
 
 #MAIN MENU#
+#PROGRAM STARTS WITH TITLE PLUS EFFECT AND OPENS MAIN MENU WITH THE 6 MENU OPTIONS#
 def menu():
-    if username == "gowanbrae_admin" and password == "1234":
+    if username == "gowanbrae_admin" and password == "1234": #IF STATEMENT MEANING THAT IF CORRECT USERNAME AND PASSWORD ARE ENTERED, PROGRAM ALLOWS USER TO ACCESS MAIN MENU#
         words = "WELCOME TO GOWAN BRAE PUBLIC SCHOOL PYTHON PROGRAM"
         for char in words:
             sleep(0.05)
@@ -113,19 +99,25 @@ def menu():
         print("5. The percentage of students who achieved a particular grade")
         print("6. Exit the program")
         print("")
-
+#CHOICES#
         choice = int(input("What option would you like to select? Enter a number to continue. "))
-
+        
+#CHOICE 1 - OPENS THE FIRST FUNCTION WHICH IS THE 'SCORES' FOR ALL 4 CLASSES A, B, C, D#
         if choice ==1:
-            scores()      
+            scores()
+#CHOICE 2 - OPENS THE SECOND FUNCTION WHICH IS THE CLASS 'INFORMATION' FOR ALL 4 CLASSES A, B, C, D#
         elif choice ==2:
               information()
+#CHOICE 3 - OPENS THE THIRD FUNCTION WHICH IS THE 'EDIT' FOR ALL 4 CLASSES A, B, C, D#
         elif choice ==3:
               edit()
+#CHOICE 4 - OPENS THE FOURTH FUNCTION WHICH IS THE 'GRADE' INTO BANDS FOR ALL 4 CLASSES A, B, C, D#
         elif choice ==4:
               grade()
+#CHOICE 5 - OPENS THE FIFTH FUNCTION WHICH IS THE 'PERCENTAGE' FOR STUDENTS WHO ACHIEVED PARTICULAR BANDS IN ALL 4 CLASSES A, B, C, D#
         elif choice ==5:
               percentage()
+#CHOICE 6 - OPENS THE SIXTH AND FINAL FUNCTION WHICH EXITS THE PROGRAM#
         elif choice ==6:
             print("")
             print("Program will now exit, Thank you for using Kai Muntons PYTHON PROGRAM.")
@@ -137,13 +129,13 @@ def menu():
             print("1")
             time.sleep(0.3)
             sys.exit()
-                  
+#ELSE STATEMENT - IN WHICH IF 1-6 IS NOT THE NUMBER SELECTED THE FOLLOWING MESSAGE APPEARS, THEN THE PROGRAM WILL RETURN TO MENU#                 
         else:
          print('Invalid choice. Try again')
          menu()
 
 #SCORES FUNCTION FOR MENU 1#
-         
+#THIS IS THE FIRST FUNCTION, "SCORES", WHEN OPENED - CLASSES A,B,C,D APPEAR#
 def scores():
     print('You have selected 1')
     print('10A')
@@ -151,18 +143,23 @@ def scores():
     print('10C')
     print('10D')
     print("")
+#CLASSLETTER REFERRING TO THE ABOVE 'PRINT' CLASSES A,B,C,D#
     classletter=input("What class would you like to see? ")
 
 #CLASS A#
-    
+#FIRST IF STATEMENT - WHEN OPENED THE USER HAS THE ABILITY TO EDIT MARKS FOR THE WHOLE CLASS#
+#PROGRAM USES THE CODE FOR CLASSES AT THE BEGINNING OF THE PROGRAM TO REFERENCE - EG scoreA and nameA ARE ARRAYS AT THE TOP OF THE PAGE#
     if classletter in ('A','a'):
         print("")
         print("What would you like to change their marks to?")
+#WHEN A OR a IS SELECTED USER HAS ABILITY TO UPDATE MARKS#
+#IF STATEMENT MAKES SURE MARKS BELOW 101 ARE ENTERED INTO THE PROGRAM AND BECOME THE NEW MARK#
         for x in range(0,len(scoreA)):
             scoreA[x] = int(input("What would you like to change " + namesA[x] + "'s Mark to?"))
             if scoreA[x] < 101 > -1:
                 print(str(namesA[x]) + "'s Mark has been made to" + str(scoreA[x]) +"/100")
                 print("")
+#ELSE STATEMENT MAKES SURE THAT MARKS ABOVE 100 ARE NOT ENTERED INTO THE PROGRAM AND THE USER HAS TO RE-ENTER MARK#
             else:
                 print("That mark cannot be entered")
                 scoreA[x] = int(input("Please re-enter the mark: "))
@@ -170,15 +167,19 @@ def scores():
                 print("")
 
 #CLASS B#
-                
+#FIRST ELIF STATEMENT - WHEN OPENED THE USER HAS THE ABILITY TO EDIT MARKS FOR THE WHOLE CLASS#
+#PROGRAM USES THE CODE FOR CLASSES AT THE BEGINNING OF THE PROGRAM TO REFERENCE - EG scoreB and nameB ARE ARRAYS AT THE TOP OF THE PAGE#       
     elif classletter in ('B','b'):
           print("")
           print("What would you like to change the marks to?")
+#WHEN B OR b IS SELECTED USER HAS ABILITY TO UPDATE MARKS#
+#IF STATEMENT MAKES SURE MARKS BELOW 101 ARE ENTERED INTO THE PROGRAM AND BECOME THE NEW MARK#
           for x in range(0, len(scoreB)):
               scoreB[x] = int(input("What would you like to change" + namesB[x] + "'s Mark to?"))
               if scoreB[x] < 101 > -1:
                   print(str(namesB[x]) + "'s Mark has been made to" + str(scoreB[x]) +"/100")
                   print("Mark has been changed")
+#ELSE STATEMENT MAKES SURE THAT MARKS ABOVE 100 ARE NOT ENTERED INTO THE PROGRAM AND THE USER HAS TO RE-ENTER MARK#
               else:
                   print("That mark cannot be entered")
                   scoreB[x] = int(input("Please re-enter the mark: "))
@@ -186,15 +187,19 @@ def scores():
                   print("")
 
 #CLASS C#
-                  
+#FIRST ELIF STATEMENT - WHEN OPENED THE USER HAS THE ABILITY TO EDIT MARKS FOR THE WHOLE CLASS#
+#PROGRAM USES THE CODE FOR CLASSES AT THE BEGINNING OF THE PROGRAM TO REFERENCE - EG scoreC and nameC ARE ARRAYS AT THE TOP OF THE PAGE#     
     elif classletter in ('C','c'):
           print("")
           print("What would you like to change the marks to?")
+#WHEN C OR c IS SELECTED USER HAS ABILITY TO UPDATE MARKS#
+#IF STATEMENT MAKES SURE MARKS BELOW 101 ARE ENTERED INTO THE PROGRAM AND BECOME THE NEW MARK#
           for x in range(0, len(scoreC)):
               scoreC[x] = int(input("What would you like to change" + namesC[x] + "'s Mark to?"))
               if scoreC[x] < 101 > -1:
                   print(str(namesC[x]) + "'s Mark has been made to" + str(scoreC[x]) +"/100")
                   print("Mark has been changed")
+#ELSE STATEMENT MAKES SURE THAT MARKS ABOVE 100 ARE NOT ENTERED INTO THE PROGRAM AND THE USER HAS TO RE-ENTER MARK#
               else:
                   print("That mark cannot be entered")
                   scoreC[x] = int(input("Please re-enter the mark: "))
@@ -202,15 +207,19 @@ def scores():
                   print("")
 
 #CLASS D#
-                  
+#FIRST ELIF STATEMENT - WHEN OPENED THE USER HAS THE ABILITY TO EDIT MARKS FOR THE WHOLE CLASS#
+#PROGRAM USES THE CODE FOR CLASSES AT THE BEGINNING OF THE PROGRAM TO REFERENCE - EG scoreD and nameD ARE ARRAYS AT THE TOP OF THE PAGE#                       
     elif classletter in ('D','d'):
           print("")
           print("What would you like to change the marks to?")
+#WHEN D OR d IS SELECTED USER HAS ABILITY TO UPDATE MARKS#
+#IF STATEMENT MAKES SURE MARKS BELOW 101 ARE ENTERED INTO THE PROGRAM AND BECOME THE NEW MARK#
           for x in range(0, len(scoreD)):
               scoreD[x] = int(input("What would you like to change" + namesD[x] + "'s Mark to?"))
               if scoreD[x] < 101 > -1:
                   print(str(namesD[x]) + "'s Mark has been made to" + str(scoreD[x]) +"/100")
                   print("Mark has been changed")
+#ELSE STATEMENT MAKES SURE THAT MARKS ABOVE 100 ARE NOT ENTERED INTO THE PROGRAM AND THE USER HAS TO RE-ENTER MARK#
               else:
                   print("That mark cannot be entered")
                   scoreD[x] = int(input("Please re-enter the mark: "))
@@ -219,7 +228,7 @@ def scores():
                   menu()
                   
 #INFORMATION FUNCTION FOR MENU 2#
-                  
+#THIS IS THE SECOND FUNCTION, "INFORMATION", WHEN OPENED - CLASSES A,B,C,D APPEAR#                 
 def information():
     print('You have selected 2')
     print('10A')
@@ -228,36 +237,49 @@ def information():
     print('10D')
     print("")
     classletter=input("What class would you like to see? ")
+#CLASSLETTER REFERRING TO THE ABOVE 'PRINT' CLASSES A,B,C,D#
     if classletter in ('A','a'):
+#IF STATEMENT REFERRING TO CLASSLETTER, WHEN CORRECT LETTER A or a IS ENTERED, USER CAN VIEW UPDATED CLASS SCORES#
+#WHEN USER UPDATES SCORES THROUGH FUNCTION 1 OR 3, THE SCORES WILL UPDATE IN FUNCTION 2 AS WELL#
         print("")
         print("Class Scores for Class A")
         for x in range(0,len(scoreA)):
             print(str(namesA[x]) + " -> " + str(scoreA[x]) + "/100")
             print("")
+#THE RANGE FUNCTION HERE RETURNS THE LIST AND THE STR FUNCTION CONVERTS THE VALUE INTO STRINGS#
 
     elif classletter in ('B', 'b'):
+#ELIF STATEMENT REFERRING TO CLASSLETTER, WHEN CORRECT LETTER B or b IS ENTERED, USER CAN VIEW UPDATED CLASS SCORES#
+#WHEN USER UPDATES SCORES THROUGH FUNCTION 1 OR 3, THE SCORES WILL UPDATE IN FUNCTION 2 AS WELL#
           print("")
           print("Class Scores for Class B")
           for x in range(0,len(scoreB)):
               print(str(namesB[x]) + " -> " + str(scoreB[x]) + "/100")
               print("")
+#THE RANGE FUNCTION HERE RETURNS THE LIST AND THE STR FUNCTION CONVERTS THE VALUE INTO STRINGS#
 
     elif classletter in ('C', 'c'):
+#ELIF STATEMENT REFERRING TO CLASSLETTER, WHEN CORRECT LETTER C or c IS ENTERED, USER CAN VIEW UPDATED CLASS SCORES#
+#WHEN USER UPDATES SCORES THROUGH FUNCTION 1 OR 3, THE SCORES WILL UPDATE IN FUNCTION 2 AS WELL#
           print("")
           print("Class Scores for Class C")
           for x in range(0,len(scoreC)):
               print(str(namesC[x]) + " -> " + str(scoreC[x]) + "/100")
               print("")
+#THE RANGE FUNCTION HERE RETURNS THE LIST AND THE STR FUNCTION CONVERTS THE VALUE INTO STRINGS#
 
     elif classletter in ('D', 'd'):
+#ELIF STATEMENT REFERRING TO CLASSLETTER, WHEN CORRECT LETTER D or d IS ENTERED, USER CAN VIEW UPDATED CLASS SCORES#
+#WHEN USER UPDATES SCORES THROUGH FUNCTION 1 OR 3, THE SCORES WILL UPDATE IN FUNCTION 2 AS WELL#
           print("")
           print("Class Scores for Class D")
           for x in range(0,len(scoreD)):
               print(str(namesD[x]) + " -> " + str(scoreD[x]) + "/100")
               print("")
+#THE RANGE FUNCTION HERE RETURNS THE LIST AND THE STR FUNCTION CONVERTS THE VALUE INTO STRINGS#
               
 #EDIT FUNCTION FOR MENU 3#
-              
+#THIS IS THE THIRD FUNCTION, "EDIT", WHEN OPENED - CLASSES A,B,C,D APPEAR#               
 def edit():
     print('You have selected 3')
     print('Classes A-D') 
@@ -267,7 +289,10 @@ def edit():
     print('10D')
     print("")
     classletter_3=input("What class would you like to see?")
+#CLASSLETTER REFERRING TO THE ABOVE 'PRINT' CLASSES A,B,C,D#
     if classletter_3 in ('A','a'):
+#WHEN EITHER A,B,C,D IS SELECTED PROGRAM WILL PRINT OUT THE 10 PEOPLE IN THAT CLASS#
+#USER CAN NOW SELECT A PERSON TO INDIVIDUALLY UPDATE THEIR MARKS OR THEY CAN EDIT THE ENTIRE CLASSES#
         print("")
         print("Class scores for Class 10A")
         print("1. " + namesA[0])
@@ -283,21 +308,25 @@ def edit():
         print("11. Edit the entire classes marks")
         print("")
         editScoreA = int(input("What mark would you like to update?"))
+#EDITSCORE REFERS TO THE SELECTION NUMBER OF A PERSON, WHEN 1 IS SELECTED, THE FIRST NAME IN 'PRINT' WILL BE OPENED AND AVALIABLE FOR USER TO UPDATE#
         
 #MENU 3 - CLASS A SCORES#
-        
+#THE IF STATEMENT HERE FOR EDITSCOREA EQUALS 1, SO, HAYDEN FOXWELL IS THE FIRST NAME ON THE LIST AND IS OPENED#
+#MUCH LIKE FUNCTION 1 AND 2, USER CAN EDIT SCORES, WITH THE ARRAYS USED FROM scoreA and nameA#
         if editScoreA == 1:
             print("")
             scoreA[0] = int(input("What would you like edit " + namesA[0] + "'s mark as?"))
             if scoreA[0] <101 > -1:
+#IF STATEMENT MAKES SURE MARKS BELOW 101 ARE ENTERED INTO THE PROGRAM AND BECOME THE NEW MARK#
                 print(str(namesA[0]) +"'s mark has been updated to " +str(scoreA[0]) + "/100")
                 print("")
             else:
+#ELSE STATEMENT MAKES SURE THAT MARKS ABOVE 100 ARE NOT ENTERED INTO THE PROGRAM AND THE USER HAS TO RE-ENTER MARK#
                 print("That mark is invalid")
                 scoreA[0] = int(input("Please try again: "))
                 print(str(namesA[0]) + "'s mark has been updated to " + str(scoreA[0]) + "/100")
                 print("")
-
+#THE CODE NOW REPEATS FOR EVERY NAME IN CLASS 10A#
         elif editScoreA == 2:
             print("")
             scoreA[1] = int(input("What would you like edit " + namesA[1] + "'s mark as?"))
@@ -420,6 +449,7 @@ def edit():
                 print("")
 
 #MENU 3 - CLASS B SCORES#
+#HERE THE CODE IS REPEATED FOR CLASS 10B#
                 
     elif classletter_3 in ('B','b'):
         print("")
@@ -570,12 +600,319 @@ def edit():
                     scoreB[x] = int(input("Please try again: "))
                     print(str(namesB[x]) + "'s mark has been updated to " + str(scoreB[x]) + "/100")
                 print("")
+                
 
-            
+        #MENU 3 - CLASS C SCORES#
+#HERE THE CODE IS REPEATED FOR CLASS 10C#
+                
+    elif classletter_3 in ('C','c'):
+        print("")
+        print("Class scores for Class 10C")
+        print("1. " + namesC[0])
+        print("2. " + namesC[1])
+        print("3. " + namesC[2])
+        print("4. " + namesC[3])
+        print("5. " + namesC[4])
+        print("6. " + namesC[5])
+        print("7. " + namesC[6])
+        print("8. " + namesC[7])
+        print("9. " + namesC[8])
+        print("10. " + namesC[9])
+        print("11. Edit the entire classes marks")
+        print("")
+        editScoreC = int(input("What mark would you like to update?"))
 
-                    
-                        
-                          
+        if editScoreC == 1:
+            print("")
+            scoreC[0] = int(input("What would you like edit " + namesC[0] + "'s mark as?"))
+            if scoreC[0] <101 > -1:
+                print(str(namesC[0]) +"'s mark has been updated to " +str(scoreC[0]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[0] = int(input("Please try again: "))
+                print(str(namesC[0]) + "'s mark has been updated to " + str(scoreC[0]) + "/100")
+                print("")
+
+        elif editScoreC == 2:
+            print("")
+            scoreC[1] = int(input("What would you like edit " + namesC[1] + "'s mark as?"))
+            if scoreC[1] <101 > -1:
+                print(str(namesC[1]) +"'s mark has been updated to " +str(scoreC[1]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[1] = int(input("Please try again: "))
+                print(str(namesC[1]) + "'s mark has been updated to " + str(scoreC[1]) + "/100")
+                print("")
+
+        elif editScoreC == 3:
+            print("")
+            scoreC[2] = int(input("What would you like edit " + namesC[2] + "'s mark as?"))
+            if scoreC[2] <101 > -1:
+                print(str(namesC[2]) +"'s mark has been updated to " +str(scoreC[2]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[2] = int(input("Please try again: "))
+                print(str(namesC[2]) + "'s mark has been updated to " + str(scoreC[2]) + "/100")
+                print("")
+
+        elif editScoreC == 4:
+            print("")
+            scoreC[3] = int(input("What would you like edit " + namesC[3] + "'s mark as?"))
+            if scoreC[3] <101 > -1:
+                print(str(namesC[3]) +"'s mark has been updated to " +str(scoreC[3]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[3] = int(input("Please try again: "))
+                print(str(namesC[3]) + "'s mark has been updated to " + str(scoreC[3]) + "/100")
+                print("")
+
+        elif editScoreC == 5:
+            print("")
+            scoreC[4] = int(input("What would you like edit " + namesC[4] + "'s mark as?"))
+            if scoreC[4] <101 > -1:
+                print(str(namesC[4]) +"'s mark has been updated to " +str(scoreC[4]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[4] = int(input("Please try again: "))
+                print(str(namesC[4]) + "'s mark has been updated to " + str(scoreC[4]) + "/100")
+                print("")
+
+        elif editScoreC == 6:
+            print("")
+            scoreC[5] = int(input("What would you like edit " + namesC[5] + "'s mark as?"))
+            if scoreC[5] <101 > -1:
+                print(str(namesC[5]) +"'s mark has been updated to " +str(scoreC[5]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[5] = int(input("Please try again: "))
+                print(str(namesC[5]) + "'s mark has been updated to " + str(scoreC[5]) + "/100")
+                print("")
+
+        elif editScoreC == 7:
+            print("")
+            scoreC[6] = int(input("What would you like edit " + namesC[6] + "'s mark as?"))
+            if scoreC[6] <101 > -1:
+                print(str(namesC[6]) +"'s mark has been updated to " +str(scoreC[6]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[6] = int(input("Please try again: "))
+                print(str(namesC[6]) + "'s mark has been updated to " + str(scoreC[6]) + "/100")
+                print("")
+
+        elif editScoreC == 8:
+            print("")
+            scoreC[7] = int(input("What would you like edit " + namesC[7] + "'s mark as?"))
+            if scoreC[7] <101 > -1:
+                print(str(namesC[7]) +"'s mark has been updated to " +str(scoreC[7]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[7] = int(input("Please try again: "))
+                print(str(namesC[7]) + "'s mark has been updated to " + str(scoreC[7]) + "/100")
+                print("")
+
+        elif editScoreC == 9:
+            print("")
+            scoreC[8] = int(input("What would you like edit " + namesC[8] + "'s mark as?"))
+            if scoreC[8] <101 > -1:
+                print(str(namesC[8]) +"'s mark has been updated to " +str(scoreC[8]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[8] = int(input("Please try again: "))
+                print(str(namesC[8]) + "'s mark has been updated to " + str(scoreC[8]) + "/100")
+                print("")
+
+        elif editScoreC == 10:
+            print("")
+            scoreC[9] = int(input("What would you like edit " + namesC[9] + "'s mark as?"))
+            if scoreC[9] <101 > -1:
+                print(str(namesC[9]) +"'s mark has been updated to " +str(scoreC[9]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreC[9] = int(input("Please try again: "))
+                print(str(namesC[9]) + "'s mark has been updated to " + str(scoreC[9]) + "/100")
+                print("")
+
+        elif editScoreC == 11:
+            print("What would you like to update the whole classes score to?")
+            for x in range(0, len(scoreC)):
+                scoreC[x] = int(input("What would you like edit " +namesC[x] + "'s mark as? "))
+                if scoreC[x] < 101 > -1:
+                    print(str(namesC[x]) + "'s mark has been updated to " + str(scoreC[x]) + "/100")
+                    print("")
+                else:
+                    print("That mark is invalid")
+                    scoreC[x] = int(input("Please try again: "))
+                    print(str(namesC[x]) + "'s mark has been updated to " + str(scoreC[x]) + "/100")
+                print("")
+
+        #MENU 3 - CLASS D SCORES#
+#HERE THE CODE IS REPEATED FOR CLASS 10D#
+    elif classletter_3 in ('D','d'):
+        print("")
+        print("Class scores for Class 10D")
+        print("1. " + namesD[0])
+        print("2. " + namesD[1])
+        print("3. " + namesD[2])
+        print("4. " + namesD[3])
+        print("5. " + namesD[4])
+        print("6. " + namesD[5])
+        print("7. " + namesD[6])
+        print("8. " + namesD[7])
+        print("9. " + namesD[8])
+        print("10. " + namesD[9])
+        print("11. Edit the entire classes marks")
+        print("")
+        editScoreD = int(input("What mark would you like to update?"))
+
+        if editScoreD == 1:
+            print("")
+            scoreD[0] = int(input("What would you like edit " + namesD[0] + "'s mark as?"))
+            if scoreD[0] <101 > -1:
+                print(str(namesD[0]) +"'s mark has been updated to " +str(scoreD[0]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[0] = int(input("Please try again: "))
+                print(str(namesD[0]) + "'s mark has been updated to " + str(scoreD[0]) + "/100")
+                print("")
+
+        elif editScoreD == 2:
+            print("")
+            scoreD[1] = int(input("What would you like edit " + namesD[1] + "'s mark as?"))
+            if scoreD[1] <101 > -1:
+                print(str(namesD[1]) +"'s mark has been updated to " +str(scoreD[1]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[1] = int(input("Please try again: "))
+                print(str(namesD[1]) + "'s mark has been updated to " + str(scoreD[1]) + "/100")
+                print("")
+
+        elif editScoreD == 3:
+            print("")
+            scoreD[2] = int(input("What would you like edit " + namesD[2] + "'s mark as?"))
+            if scoreD[2] <101 > -1:
+                print(str(namesD[2]) +"'s mark has been updated to " +str(scoreD[2]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[2] = int(input("Please try again: "))
+                print(str(namesD[2]) + "'s mark has been updated to " + str(scoreD[2]) + "/100")
+                print("")
+
+        elif editScoreD == 4:
+            print("")
+            scoreD[3] = int(input("What would you like edit " + namesD[3] + "'s mark as?"))
+            if scoreD[3] <101 > -1:
+                print(str(namesD[3]) +"'s mark has been updated to " +str(scoreD[3]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[3] = int(input("Please try again: "))
+                print(str(namesD[3]) + "'s mark has been updated to " + str(scoreD[3]) + "/100")
+                print("")
+
+        elif editScoreD == 5:
+            print("")
+            scoreD[4] = int(input("What would you like edit " + namesD[4] + "'s mark as?"))
+            if scoreD[4] <101 > -1:
+                print(str(namesD[4]) +"'s mark has been updated to " +str(scoreD[4]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[4] = int(input("Please try again: "))
+                print(str(namesD[4]) + "'s mark has been updated to " + str(scoreD[4]) + "/100")
+                print("")
+
+        elif editScoreD == 6:
+            print("")
+            scoreD[5] = int(input("What would you like edit " + namesD[5] + "'s mark as?"))
+            if scoreD[5] <101 > -1:
+                print(str(namesD[5]) +"'s mark has been updated to " +str(scoreD[5]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[5] = int(input("Please try again: "))
+                print(str(namesD[5]) + "'s mark has been updated to " + str(scoreD[5]) + "/100")
+                print("")
+
+        elif editScoreD == 7:
+            print("")
+            scoreD[6] = int(input("What would you like edit " + namesD[6] + "'s mark as?"))
+            if scoreD[6] <101 > -1:
+                print(str(namesB[6]) +"'s mark has been updated to " +str(scoreB[6]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[6] = int(input("Please try again: "))
+                print(str(namesD[6]) + "'s mark has been updated to " + str(scoreD[6]) + "/100")
+                print("")
+
+        elif editScoreD == 8:
+            print("")
+            scoreD[7] = int(input("What would you like edit " + namesD[7] + "'s mark as?"))
+            if scoreD[7] <101 > -1:
+                print(str(namesD[7]) +"'s mark has been updated to " +str(scoreD[7]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[7] = int(input("Please try again: "))
+                print(str(namesD[7]) + "'s mark has been updated to " + str(scoreD[7]) + "/100")
+                print("")
+
+        elif editScoreD == 9:
+            print("")
+            scoreD[8] = int(input("What would you like edit " + namesD[8] + "'s mark as?"))
+            if scoreD[8] <101 > -1:
+                print(str(namesD[8]) +"'s mark has been updated to " +str(scoreD[8]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[8] = int(input("Please try again: "))
+                print(str(namesD[8]) + "'s mark has been updated to " + str(scoreD[8]) + "/100")
+                print("")
+
+        elif editScoreD == 10:
+            print("")
+            scoreD[9] = int(input("What would you like edit " + namesD[9] + "'s mark as?"))
+            if scoreD[9] <101 > -1:
+                print(str(namesD[9]) +"'s mark has been updated to " +str(scoreD[9]) + "/100")
+                print("")
+            else:
+                print("That mark is invalid")
+                scoreD[9] = int(input("Please try again: "))
+                print(str(namesD[9]) + "'s mark has been updated to " + str(scoreD[9]) + "/100")
+                print("")
+
+        elif editScoreD == 11:
+            print("What would you like to update the whole classes score to?")
+            for x in range(0, len(scoreD)):
+                scoreD[x] = int(input("What would you like edit " +namesD[x] + "'s mark as? "))
+                if scoreD[x] < 101 > -1:
+                    print(str(namesD[x]) + "'s mark has been updated to " + str(scoreD[x]) + "/100")
+                    print("")
+                else:
+                    print("That mark is invalid")
+                    scoreD[x] = int(input("Please try again: "))
+                    print(str(namesD[x]) + "'s mark has been updated to " + str(scoreD[x]) + "/100")
+                print("")
+
+def 
+
+
+#WHILE LOOP FOR LOGIN, AS LONG AS THE GIVEN CONDITION IS TRUE, WHILE LOOP WILL REPEAT, OR, AS LONG AS ATTEMPTS ARE GREATER THAN 1#
+#ONCE ATTEMPTS ARE LESS THAN 1, WHILE LOOP CONDITION IS FALSE AND PROGRAM THEREFORE EXITS#
+
 while(attempts > 1):
     if username != "gowanbrae_admin" and password != "1234":
         attempts = attempts - 1
@@ -609,7 +946,9 @@ while(attempts > 1):
     if username == "gowanbrae_admin" and password == "1234":
         menu()
         pass
-
+#HERE THE WHILE LOOP BECOMES FALSE AS ATTEMPTS ARE LESS THAN 1#
+    #PROGRAM SHUTS DOWN#
+    
     if attempts == 1:
         print("3 attempts used. Shutting down program.")
          
