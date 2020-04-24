@@ -16,7 +16,6 @@ password=input("Please enter the correct Password: ")
 print("") 
 #THE USER HAS 3 ATTEMPTS BEFORE THE PROGRAM WILL SHUT DOWN#
 attempts=3
-gradeA_percentage = [0]
 
 #STUDENT NAMES AND SCORES FOR CLASS A#
 #       0  1  2  3  4  5  6  7  8  9
@@ -907,9 +906,82 @@ def edit():
                     print(str(namesD[x]) + "'s mark has been updated to " + str(scoreD[x]) + "/100")
                 print("")
 
-def 
+#SCORES FUNCTION FOR MENU 4#
+#THIS IS THE FOURTH FUNCTION, "GRADE", WHEN OPENED - CLASSES A,B,C,D APPEAR#
+def grade():
+    print('You have selected 1')
+    print('10A')
+    print('10B')
+    print('10C')
+    print('10D')
+    print("")
+#CLASSLETTER REFERRING TO THE ABOVE 'PRINT' CLASSES A,B,C,D#
+    classletter=input("What class would you like to see? ")
+    if classletter in ('A','a'):
+        
+       def calcAverage( score0, score1, score2, score3, score4, score5, score6, score7, score8, score9 ):
+           average = ( score0 + score1 + score2 + score3 + score4 + score5 + score6 + score7 + score8 + score9) / 10
+           return average
+
+       def determineGrade( userScore ):
+           if( userScore < 50 ):
+               return "GRADE E"
+           elif( scoreA < 60):
+                 return "GRADE P"
+           elif( scoreA < 70):
+                 return "GRADE D"
+           elif( scoreA < 80):
+                 return "GRADE C"
+           elif( scoreA < 90):
+                 return "GRADE B"
+           elif( scoreA < 101):
+                 return "GRADE A"
+    
+       def askForScores():
+           score0 = float( input( "Please enter HAYDEN FOXWELL'S MARK TO CALCULATE GRADE: "))
+          
+           score1 = float( input( "Please enter YASH PRASAD'S MARK TO CALCULATE GRADE: "))
+          
+           score2 = float( input( "Please enter YASH LALA'S MARK TO CALCULATE GRADE: "))
+          
+           score3 = float( input( "Please enter KAI MUNTON'S MARK TO CALCULATE GRADE: "))
+          
+           score4 = float( input( "Please enter YASH PATIL'S MARK TO CALCULATE GRADE: "))
+          
+           score5 = float( input( "Please enter MICHAEL TZAKOS'S MARK TO CALCULATE GRADE: "))
+          
+           score6 = float( input( "Please enter PLAABON DAS'S MARK TO CALCULATE GRADE: "))
+          
+           score7 = float( input( "Please enter HARSHIL PAREEK'S MARK TO CALCULATE GRADE: "))
+          
+           score8 = float( input( "Please enter ADITYA NAIR'S MARK TO CALCULATE GRADE: "))
+          
+           score9 = float( input( "Please enter WILLIAM KENT'S MARK TO CALCULATE GRADE: "))
 
 
+           return score0, score1, score2, score3, score4, score5, score6, score7, score8, score9
+
+       def printTableOfResults( score0, score1, score2, score3, score4, score5, score6, score7, score8, score9 ):
+           print(" Score\tLetter Grade" )
+           print( str( score0 ) + "\t" + determineGrade( score0 ), \
+                ( str( score1 ) + "\t" + determineGrade( score1 ), \
+                ( str( score2 ) + "\t" + determineGrade( score2 ), \
+                ( str( score3 ) + "\t" + determineGrade( score3 ), \
+                ( str( score4 ) + "\t" + determineGrade( score4 ), \
+                ( str( score5 ) + "\t" + determineGrade( score5 ), \
+                ( str( score6 ) + "\t" + determineGrade( score6 ), \
+                ( str( score7 ) + "\t" + determineGrade( score7 ), \
+                ( str( score8 ) + "\t" + determineGrade( score8 ), \
+                ( str( score9 ) + "\t" + determineGrade( score9 ), sep == "\n" )  
+    def main():
+           score0, score1, score2, score3, score4, score5, score6, score7, score8, score9 = askForScores()
+                    
+           printTableOfResults( score0, score1, score2, score3, score4, score5, score6, score7, score8, score9 )
+
+    menu()
+
+       
+           
 #WHILE LOOP FOR LOGIN, AS LONG AS THE GIVEN CONDITION IS TRUE, WHILE LOOP WILL REPEAT, OR, AS LONG AS ATTEMPTS ARE GREATER THAN 1#
 #ONCE ATTEMPTS ARE LESS THAN 1, WHILE LOOP CONDITION IS FALSE AND PROGRAM THEREFORE EXITS#
 
