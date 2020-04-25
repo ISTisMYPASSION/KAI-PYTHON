@@ -1,3 +1,18 @@
+## Foxwell Comments
+'''
+Hi Kai, I have had a look over you application. I have found that there are several issues. One glaring issue is that i cannot
+enter other students into the program. The students you have are hard coded. What if the gowan brae school wants to add a student
+to a class? Or the next year rolls around and the classes change. You will have to reprogram the entire program.
+
+Furthermore, i have done some testing on your inputs. There is an issue. My highly trained Babboon Testing team has managed to find 
+many ways to break your program! They have entered incorrect information and are laughing at you because your program crashed.
+Do you want to be laughed at by baboons kai? I didn't think so?!
+
+Make sure you Check that your inputs are correct. And give your user instructions so clear a baboon can understand 🐒🐒🐒
+'''
+
+
+
 import os
 import sys
 import time
