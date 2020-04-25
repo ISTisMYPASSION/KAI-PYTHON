@@ -115,7 +115,7 @@ def menu():
               grade()
 #CHOICE 5 - OPENS THE FIFTH FUNCTION WHICH IS THE 'PERCENTAGE' FOR STUDENTS WHO ACHIEVED PARTICULAR BANDS IN ALL 4 CLASSES A, B, C, D#
         elif choice ==5:
-              percentage()
+              percentage() ## This function is currently undefined. You need to define this function - FOX
 #CHOICE 6 - OPENS THE SIXTH AND FINAL FUNCTION WHICH EXITS THE PROGRAM#
         elif choice ==6:
             print("")
@@ -963,16 +963,17 @@ def grade():
 
        def printTableOfResults( score0, score1, score2, score3, score4, score5, score6, score7, score8, score9 ):
            print(" Score\tLetter Grade" )
+           ## The problem here was that there wasn't a matching ')' for each of the opening parenthesis - FOX
            print( str( score0 ) + "\t" + determineGrade( score0 ), \
-                ( str( score1 ) + "\t" + determineGrade( score1 ), \
-                ( str( score2 ) + "\t" + determineGrade( score2 ), \
-                ( str( score3 ) + "\t" + determineGrade( score3 ), \
-                ( str( score4 ) + "\t" + determineGrade( score4 ), \
-                ( str( score5 ) + "\t" + determineGrade( score5 ), \
-                ( str( score6 ) + "\t" + determineGrade( score6 ), \
-                ( str( score7 ) + "\t" + determineGrade( score7 ), \
-                ( str( score8 ) + "\t" + determineGrade( score8 ), \
-                ( str( score9 ) + "\t" + determineGrade( score9 ), sep == "\n" )  
+                ( str( score1 ) + "\t" + determineGrade( score1 )), \
+                ( str( score2 ) + "\t" + determineGrade( score2 )), \
+                ( str( score3 ) + "\t" + determineGrade( score3 )), \
+                ( str( score4 ) + "\t" + determineGrade( score4 )), \
+                ( str( score5 ) + "\t" + determineGrade( score5 )), \
+                ( str( score6 ) + "\t" + determineGrade( score6 )), \
+                ( str( score7 ) + "\t" + determineGrade( score7 )), \
+                ( str( score8 ) + "\t" + determineGrade( score8 )), \
+                ( str( score9 ) + "\t" + determineGrade( score9 )), sep == "\n" ) ## Python doesn't know what sep is. You shouldn't need this. - FOX
     def main():
            score0, score1, score2, score3, score4, score5, score6, score7, score8, score9 = askForScores()
                     
